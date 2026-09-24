@@ -11,7 +11,6 @@ Two parts, each usable on its own:
 | `translation/` | Class-conditioned unpaired image translation between two domains |
 | `classifier/` | VGG16 binary classifier for the downstream task |
 
-No data is included. You supply the images and decide how much of them to use.
 
 ---
 
