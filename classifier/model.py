@@ -1,4 +1,7 @@
-"""VGG16 binary classifier used for the downstream task.
+"""
+© 2026 Arizona Board of Regents on behalf of the University of Arizona
+
+VGG16 binary classifier used for the downstream task.
 
 GlobalMaxPool -> Dense(1024, ReLU) -> Dropout -> Dense(1024, ReLU) -> Dropout
 -> Dense(1, sigmoid). The backbone is frozen except the convolutions among the
