@@ -1,4 +1,7 @@
-"""Train and evaluate the downstream binary classifier.
+"""
+© 2026 Arizona Board of Regents on behalf of the University of Arizona
+
+Train and evaluate the downstream binary classifier.
 
     python -m classifier.train --manifest manifest.csv --out_dir runs/baseline
 
