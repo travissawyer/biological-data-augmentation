@@ -1,4 +1,7 @@
-"""Loss terms for the translation model."""
+"""
+© 2026 Arizona Board of Regents on behalf of the University of Arizona
+
+Loss terms for the translation model."""
 
 from __future__ import annotations
 
