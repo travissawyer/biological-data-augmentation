@@ -1,4 +1,7 @@
-"""Configuration for the unpaired two-domain translation model."""
+"""
+© 2026 Arizona Board of Regents on behalf of the University of Arizona
+
+Configuration for the unpaired two-domain translation model."""
 
 from __future__ import annotations
 
