@@ -1,4 +1,7 @@
-"""Train the class-conditioned unpaired translation model.
+"""
+© 2026 Arizona Board of Regents on behalf of the University of Arizona
+
+Train the class-conditioned unpaired translation model.
 
 The two domains are unpaired: batches are drawn independently from each, and no
 correspondence between individual images is assumed or used.
