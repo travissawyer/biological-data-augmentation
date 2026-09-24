@@ -11,8 +11,6 @@ Two parts, each usable on its own:
 | `translation/` | Class-conditioned unpaired image translation between two domains |
 | `classifier/` | VGG16 binary classifier for the downstream task |
 
-No data is included. You supply the images and decide how much of them to use.
-
 ---
 
 ## What data you need
@@ -129,18 +127,6 @@ translated/normal/img_0001_translated.png,0,train,A014,translated
 human/img_0044.png,1,test,S052,real
 ```
 
-Two rules for a meaningful comparison:
-
-1. **Split by specimen, not by image.** Every image from one specimen goes to
-   the same split. Splitting at the image level leaks a specimen across
-   partitions and inflates the result.
-2. **Put translated images in the training split only.** Validation and test
-   splits should contain real human images alone.
-
-To compare training sets, write one manifest per condition and keep the
-validation and test splits identical across them. The comparison is then paired
-and differs only in what was added to training.
-
 ### Train
 
 ```
@@ -168,14 +154,6 @@ Dense(1, sigmoid). Loss is binary cross-entropy plus an explicit L2 penalty on
 the trainable convolution weights and all three head weight matrices.
 
 ---
-
-## Notes on evaluation
-
-Images tiled from the same specimen are strongly correlated, so treating them as
-independent samples will understate the uncertainty of any comparison. Pool
-predictions per specimen using the `source_id` column, and resample specimens
-rather than images when computing confidence intervals or comparing conditions.
-
 ## Citation
 
 Please cite the paper if you use this code.
