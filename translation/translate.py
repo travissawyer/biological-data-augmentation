@@ -1,4 +1,7 @@
-"""Generate translated images from a trained checkpoint.
+"""
+© 2026 Arizona Board of Regents on behalf of the University of Arizona
+
+Generate translated images from a trained checkpoint.
 
 Maps images from the source domain (animal) into the target domain (human),
 writing one translated image per input image and a manifest recording the
