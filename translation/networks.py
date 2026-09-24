@@ -1,4 +1,7 @@
-"""Network definitions for the class-conditioned unpaired translation model.
+"""
+© 2026 Arizona Board of Regents on behalf of the University of Arizona
+
+Network definitions for the class-conditioned unpaired translation model.
 
 The content/style split with AdaIN decoding follows MUNIT and DRIT; adaptive
 instance normalization follows Huang and Belongie; the KL-regularized Gaussian
