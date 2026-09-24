@@ -1,5 +1,7 @@
 # Cross-species image translation for biological data augmentation
 
+© 2026 Arizona Board of Regents on behalf of the University of Arizona
+
 Reference implementation of the two models used in *Unpaired Animal-to-Human
 Translation of Label-Free Multiphoton Microscopy Images: A Demonstration of
 Cross-Species Biological Augmentation in Pancreatic Neuroendocrine Tumors*.
