@@ -1,4 +1,7 @@
-"""Dataset for the downstream classifier.
+"""
+© 2026 Arizona Board of Regents on behalf of the University of Arizona
+
+Dataset for the downstream classifier.
 
 Reads a CSV that the user supplies. Required columns:
 
