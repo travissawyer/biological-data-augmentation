@@ -1,4 +1,7 @@
-"""Dataset for the translation model.
+"""
+© 2026 Arizona Board of Regents on behalf of the University of Arizona
+
+Dataset for the translation model.
 
 Reads a CSV that the user supplies. Required columns:
 
