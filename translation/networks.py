@@ -1,14 +1,14 @@
 """Network definitions for the class-conditioned unpaired translation model.
 
 The content/style split with AdaIN decoding follows MUNIT and DRIT; adaptive
-instance normalisation follows Huang and Belongie; the KL-regularised Gaussian
+instance normalization follows Huang and Belongie; the KL-regularized Gaussian
 style latent follows the VAE formulation; the auxiliary class head on the
 discriminator follows AC-GAN.
 
 The one departure from standard MUNIT is where the class label enters. In MUNIT
 the AdaIN affine parameters are a function of the style code alone. Here the
 label is embedded and concatenated to the style code before the parameter MLP,
-so the same content and the same style code yield different normalisation
+so the same content and the same style code yield different normalization
 parameters for each class.
 """
 
@@ -44,7 +44,7 @@ class ResBlockIN(nn.Module):
 
 
 class AdaIN(nn.Module):
-    """Normalise each channel over its spatial extent, then rescale by (gamma, beta)."""
+    """Normalize each channel over its spatial extent, then rescale by (gamma, beta)."""
 
     def __init__(self, ch: int):
         super().__init__()
@@ -129,7 +129,7 @@ class AdaINDecoder(nn.Module):
     """Decodes a content code under a style code and a class label.
 
     The MLP that produces the AdaIN affine parameters takes the style code
-    concatenated with a class embedding. Its last layer is zero-initialised, so
+    concatenated with a class embedding. Its last layer is zero-initialized, so
     the decoder starts from an identity-like mapping.
     """
 
@@ -187,7 +187,7 @@ class AdaINDecoder(nn.Module):
 
 
 class PatchDiscriminator(nn.Module):
-    """Spectrally-normalised patch discriminator with an optional AC-GAN class head."""
+    """Spectrally-normalized patch discriminator with an optional AC-GAN class head."""
 
     def __init__(self, cfg: CFG):
         super().__init__()

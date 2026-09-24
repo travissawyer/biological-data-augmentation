@@ -11,6 +11,7 @@ Two parts, each usable on its own:
 | `translation/` | Class-conditioned unpaired image translation between two domains |
 | `classifier/` | VGG16 binary classifier for the downstream task |
 
+No data is included. You supply the images and decide how much of them to use.
 
 ---
 
@@ -94,13 +95,13 @@ style code to zero and produces one deterministic image per input.
 ### Architecture
 
 Content/style disentanglement with AdaIN decoding, following MUNIT and DRIT; a
-KL-regularised Gaussian style latent; cycle consistency; and an auxiliary class
+KL-regularized Gaussian style latent; cycle consistency; and an auxiliary class
 head on the discriminator, following AC-GAN.
 
 The one departure from standard MUNIT is where the class label enters. In MUNIT
 the AdaIN affine parameters are a function of the style code alone. Here the
 label is embedded and concatenated to the style code before the parameter MLP,
-so the same content and the same style code produce different normalisation
+so the same content and the same style code produce different normalization
 parameters for each class. The auxiliary class head is applied to translated
 images against the *source* label, which is what carries the class across the
 domain boundary.
@@ -128,6 +129,17 @@ translated/normal/img_0001_translated.png,0,train,A014,translated
 human/img_0044.png,1,test,S052,real
 ```
 
+Two rules for a meaningful comparison:
+
+1. **Split by specimen, not by image.** Every image from one specimen goes to
+   the same split. Splitting at the image level leaks a specimen across
+   partitions and inflates the result.
+2. **Put translated images in the training split only.** Validation and test
+   splits should contain real human images alone.
+
+To compare training sets, write one manifest per condition and keep the
+validation and test splits identical across them. The comparison is then paired
+and differs only in what was added to training.
 
 ### Train
 
@@ -141,7 +153,7 @@ Useful options:
 | Option | Purpose |
 |---|---|
 | `--preprocess unit \| imagenet` | `unit` scales to [0, 1]; `imagenet` additionally applies the channel mean/std the pretrained weights were trained with |
-| `--init pretrained \| scratch` | ImageNet-pretrained backbone, or random initialisation |
+| `--init pretrained \| scratch` | ImageNet-pretrained backbone, or random initialization |
 | `--reg_strength` | Strength of the explicit L2 penalty. A value suited to a pretrained backbone is often far too strong from a random start |
 
 Each run writes `test_predictions.csv` with one row per test image, including
@@ -156,6 +168,13 @@ Dense(1, sigmoid). Loss is binary cross-entropy plus an explicit L2 penalty on
 the trainable convolution weights and all three head weight matrices.
 
 ---
+
+## Notes on evaluation
+
+Images tiled from the same specimen are strongly correlated, so treating them as
+independent samples will understate the uncertainty of any comparison. Pool
+predictions per specimen using the `source_id` column, and resample specimens
+rather than images when computing confidence intervals or comparing conditions.
 
 ## Citation
 

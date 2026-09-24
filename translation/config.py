@@ -63,8 +63,8 @@ class CFG:
     balance_human: bool = False
     balance_power: float = 1.0
 
-    # The discriminator sees a centre crop, which keeps it from scoring border
-    # artefacts introduced by padding.
+    # The discriminator sees a center crop, which keeps it from scoring border
+    # artifacts introduced by padding.
     disc_crop: int = 0
 
     # -------------------------------------------------------------- training

@@ -114,7 +114,7 @@ def domain_mean_std(ds: Dataset, max_samples: int) -> Tuple[torch.Tensor, torch.
 
 
 class DomainNormalizer:
-    """Applies and inverts the per-domain intensity normalisation."""
+    """Applies and inverts the per-domain intensity normalization."""
 
     def __init__(self, means: Dict[int, torch.Tensor], stds: Dict[int, torch.Tensor]):
         self.means = {k: v.view(1, -1, 1, 1) for k, v in means.items()}
